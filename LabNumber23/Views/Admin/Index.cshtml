@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ViewBag.Title</h2>
+<p>@ViewBag.ErrorMessage</p>
+<p>
+    <a href="../Admin/AddItemPage" class="btn-success">Add a New Item</a>
+</p>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>In Stock</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+
+    @foreach(var Item in ViewBag.Items)
+    {
+    <tr>
+        <td>@Item.Name</td>
+        <td>@Item.Description</td>
+        <td>@Item.Quantity</td>
+        <td>@string.Format("{0:c}", Item.Price)</td>
+        <td>
+            <a href="../Admin/EditItemPage?ItemId=@Item.Id" class="btn-primary">Edit</a>
+            <a href="../Admin/DeleteItem?ItemId=@Item.Id" class="btn-danger">Delete</a>
+        </td>
+    </tr>
+    }
+    
+</table>

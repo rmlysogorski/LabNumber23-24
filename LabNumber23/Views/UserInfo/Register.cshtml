@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Registration Form";
+}
+<h2>@ViewBag.Title</h2>
+
+<link rel="stylesheet" href="~/Content/RegStyleSheet.css" />
+<div class="regForm">
+    <form method="post" id="registerForm" name="registerForm" action="/UserInfo/MakeNewUser">
+        <p class="regFormRow">
+            <label class="regFormLbl" for="first">First Name: </label>
+            <input class="regFormInput" type="text" name="FirstName" id="first"
+                   pattern="([A-Za-z]{2,25})" title="Please enter a first name between 2-25 letters." />
+        </p>
+        <p class="regFormRow">
+            <label class="regFormLbl" for="last">Last Name: </label>
+            <input class="regFormInput" type="text" name="LastName" id="last"
+                   pattern="([A-Za-z]{2,50})" title="Please enter a last name between 2-50 letters." />
+        </p>
+        <p class="regFormRow">
+            <label class="regFormLbl" for="email">E-mail: </label>
+            <input class="regFormInput" type="email" name="Email" id="email" />
+        </p>
+        <p class="regFormRow">
+            <label class="regFormLbl" for="phone">Phone Number: </label>
+            <input class="regFormInput" type="tel" name="PhoneNumber" id="phone"
+                   pattern="([0-9]{10})" title="Please enter phone numbers without parenthesis or dashes (##########)." />
+        </p>
+        <p class="regFormRow">
+            <label class="regFormLbl" for="pass">Password: </label>
+            <input class="regFormInput" type="password" name="Password" id="pass" 
+                   @Html.Raw("pattern='^.*(?=.{10,})(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#\\@$%^&+=]).*$'")
+                   title="Passwords should contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character (!@@#$%^&+=)"/>
+        </p>
+        <p class="regFormRow" style="float:right">
+            <input type="submit" value="Register!" class="regFormButt"  />
+        </p>
+    </form>
+
+</div>

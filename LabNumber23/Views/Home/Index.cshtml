@@ -1,0 +1,8 @@
+﻿<h1>Welcome to the Coffee Shop!</h1>
+<p>You can log in here: @Html.ActionLink("Log In", "LoginPage", "UserInfo")</p>
+<p>You can register here: @Html.ActionLink("Register", "Register", "UserInfo")</p>
+<p>Admin Features are here: @Html.ActionLink("Admin Login", "LoginAdminPage", "Admin")</p>
+@if(ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}

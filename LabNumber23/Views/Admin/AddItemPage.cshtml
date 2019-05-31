@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Add an Item";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form action="../Admin/AddItemToDb" method="post">
+    <input type="text" name="Name" placeholder="Item Name: " />
+    <br />
+    <input type="text" name="Description" placeholder="Description: " />
+    <br />
+    <input type="number" name="Quantity" placeholder="In Stock: " />
+    <br />
+    <input type="text" name="Price" placeholder="Price :" />
+    <br />
+    <input type="submit" value="Add Item" />
+
+</form>

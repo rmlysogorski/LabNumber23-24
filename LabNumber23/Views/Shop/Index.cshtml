@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Shop";
+}
+
+<h2>Shop</h2>
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+<p>Perform an empty search to see all items.</p>
+<form action="../Shop/SearchItems" method="post">
+    Item Name: <input type="text" name="searchString" />
+    <input type="submit" value="Search" />
+</form>
+
+@foreach (var item in ViewBag.Items)
+{
+    <div class="col-md-3" style="height:200px;border:1px solid black;padding:5px;">
+            <p>Name: @item.Name</p>
+            <p>Description: @item.Description</p>
+            <p>In Stock: @item.Quantity</p>
+            <p>Price: @String.Format("{0:c}", item.Price)</p>
+    </div>
+}
+
+<div style="height:10px;clear:left;"></div>
+ 
